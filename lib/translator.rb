@@ -10,7 +10,8 @@ end
 
 def get_japanese_emoticon(filepath, emoticon)
   emoticons = load_library(filepath)
-  emoticons.find{|key,value| value[:english] == emoticon}[1][:japanese]
+  res = emoticons.find{|key,value| value[:english] == emoticon}[1][:japanese]
+  return res.nil? ? "Sorry, that emoticon was not found" : res[0]
 end
 
 def get_english_meaning(filepath, emoticon)
